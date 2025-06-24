@@ -121,7 +121,7 @@ header nav ul li a.active {
 
 /* Hero Section */
 #hero {
-    background: url('Images/Fondo-colmenar.jpg') no-repeat center center/cover; /* Reemplaza con imagen de fondo real */
+    background: url('Fondo-colmenar.jpg') no-repeat center center/cover; /* Reemplaza con imagen de fondo real */
     height: 70vh;
     display: flex;
     align-items: center;
