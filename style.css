@@ -1,0 +1,485 @@
+:root {
+    --primary-color: #2E7D32; /* Verde oscuro principal */
+    --secondary-color: #4CAF50; /* Verde más claro */
+    --accent-color: #FFC107; /* Amarillo/Dorado para acentos */
+    --text-color: #333;
+    --light-bg-color: #f8f9fa;
+    --white-color: #fff;
+    --font-primary: 'Montserrat', sans-serif;
+    --font-secondary: 'Open Sans', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-secondary);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--white-color);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-primary);
+    color: var(--primary-color);
+}
+
+h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* Header */
+header {
+    background-color: var(--white-color);
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px; /* Ajusta según tu logo */
+    margin-right: 10px;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    padding-bottom: 5px;
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
+}
+
+header nav ul li a:hover,
+header nav ul li a.active {
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.cart-icon {
+    display: flex;
+    align-items: center;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.cart-icon i {
+    font-size: 1.5rem;
+    margin-right: 5px;
+}
+
+.menu-toggle {
+    display: none; /* Oculto en escritorio */
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+/* Hero Section */
+#hero {
+    background: url('Images/Fondo-colmenar.jpg') no-repeat center center/cover; /* Reemplaza con imagen de fondo real */
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white-color);
+    position: relative;
+}
+#hero::before { /* Overlay para mejorar legibilidad del texto */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.hero-content {
+    position: relative; /* Para que esté sobre el overlay */
+    z-index: 1;
+}
+.hero-content h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--white-color);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+}
+
+.btn-primary:hover {
+    background-color: #e0a800; /* Un poco más oscuro */
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* Section Banner (para beneficios y testimonios) */
+.section-banner {
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    padding: 50px 0;
+    text-align: center;
+}
+.section-banner h2, .section-banner h3 {
+    color: var(--white-color);
+}
+.section-banner p {
+    color: #e0e0e0;
+}
+
+.section-banner-alt { /* Para testimonios, un fondo más claro */
+    background-color: var(--light-bg-color);
+    padding: 50px 0;
+}
+
+
+/* Benefits Section */
+#benefits {
+    padding: 60px 0;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.benefit-item {
+    text-align: center;
+    padding: 20px;
+}
+
+.benefit-item i {
+    font-size: 3rem;
+    color: var(--white-color); /* Iconos blancos sobre el fondo verde */
+    margin-bottom: 15px;
+}
+
+
+/* Products Section */
+#products {
+    padding: 60px 0;
+}
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+}
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background-color: var(--white-color);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Para el badge */
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+    max-width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+.product-card h3 {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.product-price {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.product-price .old-price {
+    text-decoration: line-through;
+    color: #999;
+    margin-right: 8px;
+    font-size: 0.9em;
+}
+
+.product-price .current-price {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.product-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    color: var(--white-color);
+    border-radius: 3px;
+    font-weight: bold;
+}
+.product-badge.oferta {
+    background-color: #dc3545; /* Rojo para ofertas */
+}
+.product-badge.nuevo {
+    background-color: var(--accent-color); /* Amarillo para nuevos */
+    color: var(--text-color);
+}
+
+
+.text-center {
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Testimonials Section */
+#testimonials {
+    padding: 60px 0;
+}
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.testimonial-card {
+    background-color: var(--white-color);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    border-left: 5px solid var(--accent-color);
+}
+
+.testimonial-card p {
+    font-style: italic;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.testimonial-card h4 {
+    text-align: right;
+    color: var(--primary-color);
+    font-size: 1rem;
+}
+
+/* Contact Section */
+#contacto {
+    padding: 60px 0;
+}
+#contacto p {
+    text-align: center;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: var(--font-secondary);
+}
+.contact-form textarea {
+    resize: vertical;
+}
+.contact-form button {
+    align-self: center;
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    text-align: center;
+    padding: 30px 0;
+}
+footer .social-icons {
+    margin-top: 10px;
+}
+footer .social-icons a {
+    color: var(--white-color);
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+footer .social-icons a:hover {
+    color: var(--accent-color);
+}
+
+/* WhatsApp Float Button */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 25px;
+    left: 25px; /* Cambiado a la izquierda como en una de las capturas */
+    background-color: #25D366; /* Color oficial de WhatsApp */
+    color: var(--white-color);
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+.whatsapp-float:hover {
+    background-color: #1DA851;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .logo h1 {
+        font-size: 1.2rem; /* Más pequeño en móvil */
+    }
+    header nav {
+        display: none; /* Ocultar menú normal */
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--white-color);
+        position: absolute;
+        top: 70px; /* Altura del header aprox */
+        left: 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    header nav.active { /* Clase para mostrar menú */
+        display: flex;
+    }
+    header nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+    header nav ul li {
+        margin: 0;
+        text-align: center;
+    }
+    header nav ul li a {
+        display: block;
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+    }
+    header nav ul li a.active,
+    header nav ul li a:hover {
+        border-bottom: 1px solid #eee; /* Quitar borde inferior activo en móvil */
+        background-color: var(--light-bg-color);
+    }
+    .menu-toggle {
+        display: block; /* Mostrar botón de hamburguesa */
+    }
+    .cart-icon span {
+        display: none; /* Ocultar texto del carrito en móvil, solo ícono */
+    }
+
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+    .hero-content p {
+        font-size: 1rem;
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
+    .product-grid {
+        grid-template-columns: 1fr; /* Productos en una columna */
+    }
+    .benefits-grid, .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+}
