@@ -176,4 +176,4 @@ document.addEventListener('DOMContentLoaded', function() {
         renderCart();
         toggleCart();
     });
-}
+
