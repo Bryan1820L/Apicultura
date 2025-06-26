@@ -673,3 +673,25 @@ footer .social-icons a:hover {
 .cart-icon.shaking {
     animation: shake 0.6s cubic-bezier(.36,.07,.19,.97) both;
 }
+/* --- ESTILOS PARA LOS MENSAJES DEL FORMULARIO DE CONTACTO --- */
+#form-status {
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Estilo para mensaje de éxito */
+#form-status.success {
+    background-color: #d4edda; /* Verde claro */
+    color: #155724; /* Verde oscuro */
+    border: 1px solid #c3e6cb;
+}
+
+/* Estilo para mensaje de error */
+#form-status.error {
+    background-color: #f8d7da; /* Rojo claro */
+    color: #721c24; /* Rojo oscuro */
+    border: 1px solid #f5c6cb;
+}
