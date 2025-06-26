@@ -25,9 +25,9 @@
                     <li><a href="#contacto">Contáctanos</a></li>
                 </ul>
             </nav>
-            <div class="cart-icon">
+            <div class="cart-icon" id="cart-icon-container">
                 <i class="fas fa-shopping-cart"></i>
-                <span>S/0.00</span>
+                <span id="cart-total-heard"S/0.00</span>
             </div>
             <button class="menu-toggle" aria-label="Abrir menú">
                 <i class="fas fa-bars"></i>
@@ -72,7 +72,7 @@
             <h2 class="section-title">Nuestros Productos Estrella</h2>
             <div class="product-grid">
                 <!-- Producto 1 -->
-                <div class="product-card">
+                <div class="product-card" data-id="1" data-name="Miel Multifloral 1Kg" data-price="49.99">
                     <div class="product-badge oferta">Oferta</div>
                     <img src="miel-multifloral.jpg" alt="Miel Multifloral"> <!-- Reemplaza con imagen real -->
                     <h3>Miel Multifloral 1Kg</h3>
@@ -80,35 +80,35 @@
                         <span class="old-price">S/60.00</span>
                         <span class="current-price">S/49.99</span>
                     </p>
-                    <button class="btn btn-secondary">Añadir al Carrito</button>
+                    <button class="btn btn-secondary add-to-cart-btn">Añadir al Carrito</button>
                 </div>
                 <!-- Producto 2 -->
-                <div class="product-card">
+                <div class="product-card" data-id="2" data-name="Propóleo 30ml" data-price="25.00">
                     <img src="propoleo.jpg" alt="Propóleo Forte"> <!-- Reemplaza con imagen real -->
                     <h3>Propóleo 30ml</h3>
                     <p class="product-price">
                         <span class="current-price">S/25.00</span>
                     </p>
-                    <button class="btn btn-secondary">Añadir al Carrito</button>
+                    <button class="btn btn-secondary add-to-cart-btn">Añadir al Carrito</button>
                 </div>
                 <!-- Producto 3 -->
-                <div class="product-card">
+                <div class="product-card" data-id="3" data-name="Polen Granulado 500g" data-price="35.00">
                      <div class="product-badge nuevo">Nuevo</div>
                     <img src="polen-granuladoo.jpg" alt="Polen Granulado"> <!-- Reemplaza con imagen real -->
                     <h3>Polen Granulado 500g</h3>
                     <p class="product-price">
                         <span class="current-price">S/35.00</span>
                     </p>
-                    <button class="btn btn-secondary">Añadir al Carrito</button>
+                    <button class="btn btn-secondary add-to-cart-btn">Añadir al Carrito</button>
                 </div>
                  <!-- Producto 4 -->
-                <div class="product-card">
-                    <img src="https://via.placeholder.com/300x250/DAA520/FFFFFF?text=Miel+con+Jengibre" alt="Miel con Jengibre"> <!-- Reemplaza con imagen real -->
+                <div class="product-card" data-id="4" date-name="Jalea Real 0.5 Kg" data-price="100.00">
+                    <img src="jalea.jpg" alt="Miel con Jengibre"> <!-- Reemplaza con imagen real -->
                     <h3>Jalea Real 0.5 Kg</h3>
                     <p class="product-price">
                         <span class="current-price">S/100.00</span>
                     </p>
-                    <button class="btn btn-secondary">Añadir al Carrito</button>
+                    <button class="btn btn-secondary add-to-card-btn">Añadir al Carrito</button>
                 </div>
             </div>
             <div class="text-center">
@@ -147,7 +147,19 @@
             </form>
         </section>
     </main>
-
+     <div id="cart-sidebar" class="cart-sidebar">
+        <button id="close-cart-btn" class="close-btn">×</button>
+        <h2>Mi Carrito</h2>
+        <div id="cart-items-container">
+      <p class="empty-cart-message">Tu carrito está vacío.</p>
+        </div>
+        <div class="cart-summary">
+            <p>Total: <span id="cart-total-sidebar">S/0.00</span></p>
+            <button id="checkout-btn" class="btn btn-primary">Proceder al Pago</button>
+        </div>
+    </div>
+    <div id="overlay" class="overlay"></div>
+          
     <footer>
         <div class="container">
             <p>© 2024 Apicola Manzanapampa. Todos los derechos reservados.</p>
