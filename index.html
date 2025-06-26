@@ -142,12 +142,12 @@
         <section id="contacto" class="container">
             <h2 class="section-title">Contáctanos</h2>
             <p>¿Tienes alguna pregunta o deseas hacer un pedido especial? ¡Estamos para ayudarte!</p>
-            <form class="contact-form">
-                <input type="text" placeholder="Tu Nombre" required>
-                <input type="email" placeholder="Tu Correo Electrónico" required>
-                <textarea placeholder="Tu Mensaje" rows="5" required></textarea>
-                <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
-            </form>
+            <form id="contact-form" class="contact-form" action="https://formspree.io/f/xblypqzj" method="POST">
+        <input type="text" name="name" placeholder="Tu Nombre" required>
+        <input type="email" name="email" placeholder="Tu Correo Electrónico" required>
+        <textarea name="message" placeholder="Tu Mensaje" rows="5" required></textarea>
+        <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+    </form>
         </section>
     </main>
      <div id="cart-sidebar" class="cart-sidebar">
