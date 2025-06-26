@@ -211,4 +211,4 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inicializar el renderizado del carrito al cargar la página
     renderCart();
 
-}); // <-- ESTA ES LA ÚNICA LLAVE DE CIERRE FINAL
+}); // <-- La llave y paréntesis final que cierra todo el script.
