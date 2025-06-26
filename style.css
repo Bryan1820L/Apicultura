@@ -483,3 +483,172 @@ footer .social-icons a:hover {
         grid-template-columns: 1fr;
     }
 }
+/* --- ESTILOS DEL CARRITO DE COMPRAS Y OVERLAY --- */
+
+/* Hacer el ícono del carrito clickeable y consistente */
+.cart-icon {
+    cursor: pointer;
+}
+
+/* Panel lateral del carrito (Sidebar) */
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Inicia fuera de la pantalla */
+    width: 380px;
+    max-width: 90%; /* Para que no ocupe toda la pantalla en móviles */
+    height: 100%;
+    background-color: var(--white-color);
+    box-shadow: -5px 0 15px rgba(0,0,0,0.15);
+    transition: right 0.4s ease-in-out;
+    z-index: 1001; /* Debe estar por encima del overlay y el header */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Clase para mostrar el sidebar */
+.cart-sidebar.open {
+    right: 0; /* Lo mueve a la vista */
+}
+
+.cart-sidebar h2 {
+    font-family: var(--font-primary);
+    padding: 20px 25px;
+    margin: 0;
+    border-bottom: 1px solid #eee;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: #aaa;
+    line-height: 1;
+    transition: color 0.2s;
+}
+.close-btn:hover {
+    color: var(--text-color);
+}
+
+#cart-items-container {
+    flex-grow: 1; /* Permite que este contenedor crezca y ocupe el espacio disponible */
+    overflow-y: auto; /* Agrega scroll si hay muchos productos */
+    padding: 10px 25px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 20px;
+}
+.cart-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.cart-item img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    margin-right: 15px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.cart-item-details {
+    flex-grow: 1;
+}
+
+.cart-item-details h4 {
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.cart-item-details p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.cart-item-price {
+    font-weight: bold;
+    color: var(--primary-color) !important; /* Usamos !important para asegurar el color */
+}
+
+.remove-item-btn {
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    line-height: 28px;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+.remove-item-btn:hover {
+    background-color: #e53935;
+}
+
+.empty-cart-message {
+    text-align: center;
+    color: #888;
+    margin-top: 50px;
+}
+
+.cart-summary {
+    padding: 20px 25px;
+    border-top: 2px solid var(--secondary-color);
+    background-color: var(--light-bg-color);
+}
+
+.cart-summary p {
+    font-size: 1.3rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 15px 0;
+    font-family: var(--font-primary);
+}
+
+#checkout-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1em;
+    background-color: var(--primary-color); /* Usamos el verde principal para el botón de pago */
+}
+
+#checkout-btn:hover {
+    background-color: var(--secondary-color); /* Verde más claro en hover */
+}
+
+/* Fondo oscuro (Overlay) */
+.overlay {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 1000; /* Por debajo del sidebar, pero encima de todo lo demás */
+}
+
+/* Clase para mostrar el overlay */
+.overlay.show {
+    display: block;
+}
