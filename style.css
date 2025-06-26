@@ -647,7 +647,6 @@ footer .social-icons a:hover {
     background: rgba(0,0,0,0.6);
     z-index: 1000; /* Por debajo del sidebar, pero encima de todo lo demás */
 }
-
 /* Clase para mostrar el overlay */
 .overlay.show {
     display: block;
@@ -656,19 +655,21 @@ footer .social-icons a:hover {
 
 /* 1. Estilo para el botón cuando el producto está añadido */
 .add-to-cart-btn.added {
-    background-color: #28a745; /* Un verde de "éxito" */
+    background-color: #28a745 !important; /* Verde de "éxito" con !important para asegurar que sobreescriba otros estilos */
     color: white;
-    cursor: default; /* Cambia el cursor para indicar que no se puede clickear de nuevo */
+    cursor: default;
     pointer-events: none; /* Deshabilita temporalmente el botón */
 }
 
 /* 2. Animación para el ícono del carrito */
 @keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-    20%, 40%, 60%, 80% { transform: translateX(5px); }
+    10%, 90% { transform: translateX(-3px); }
+    20%, 80% { transform: translateX(3px); }
+    30%, 50%, 70% { transform: translateX(-3px); }
+    40%, 60% { transform: translateX(3px); }
 }
 
+/* 3. Clase que aplica la animación */
 .cart-icon.shaking {
-    animation: shake 0.5s ease-in-out;
+    animation: shake 0.6s cubic-bezier(.36,.07,.19,.97) both;
 }
