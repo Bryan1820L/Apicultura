@@ -188,50 +188,57 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inicializar el renderizado del carrito al cargar la página
     renderCart();
 // =================================================================
-    // === LÓGICA PARA EL FORMULARIO DE CONTACTO CON FORMSPREE (AJAX) ===
-    // =================================================================
-    const contactForm = document.getElementById('contact-form');
-    const formStatus = document.getElementById('form-status');
+// === LÓGICA PARA EL FORMULARIO DE CONTACTO CON FORMSPREE (AJAX) ===
+// =================================================================
+const contactForm = document.getElementById('contact-form');
+const formStatus = document.getElementById('form-status'); // El script intenta encontrar el elemento aquí
 
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // ¡Esto evita que la página se recargue!
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault(); 
 
-            const form = e.target;
-            const data = new FormData(form);
-            
-            // Muestra un mensaje de "Enviando..."
+        const form = e.target;
+        const data = new FormData(form);
+        
+        // --- MEJORA: Comprueba si el elemento de estado existe ---
+        if (formStatus) {
             formStatus.innerHTML = 'Enviando...';
-            formStatus.className = ''; // Limpia clases previas
-
-            fetch(form.action, {
-                method: form.method,
-                body: data,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                    // Mensaje de éxito
+            formStatus.className = '';
+        }
+        
+        fetch(form.action, {
+            method: form.method,
+            body: data,
+            headers: {
+                'Accept': 'application/json'
+            }
+        }).then(response => {
+            if (response.ok) {
+                // --- MEJORA: Comprueba de nuevo antes de usar ---
+                if (formStatus) {
                     formStatus.innerHTML = "¡Gracias! Tu mensaje ha sido enviado correctamente.";
-                    formStatus.classList.add('success'); // Añade una clase para estilos (opcional)
-                    form.reset(); // Limpia los campos del formulario
-                } else {
-                    // Si Formspree devuelve un error
-                    response.json().then(data => {
-                        if (Object.hasOwn(data, 'errors')) {
-                            formStatus.innerHTML = data["errors"].map(error => error["message"]).join(", ");
-                        } else {
-                            formStatus.innerHTML = "Oops! Hubo un problema al enviar tu formulario.";
-                        }
-                        formStatus.classList.add('error'); // Añade una clase para estilos (opcional)
-                    })
+                    formStatus.classList.add('success');
                 }
-            }).catch(error => {
-                // Si hay un error de red
+                form.reset(); 
+            } else {
+                response.json().then(data => {
+                    let errorMessage = "Oops! Hubo un problema al enviar tu formulario.";
+                    if (Object.hasOwn(data, 'errors')) {
+                        errorMessage = data["errors"].map(error => error["message"]).join(", ");
+                    }
+                    // --- MEJORA: Comprueba de nuevo antes de usar ---
+                    if (formStatus) {
+                        formStatus.innerHTML = errorMessage;
+                        formStatus.classList.add('error');
+                    }
+                })
+            }
+        }).catch(error => {
+            // --- MEJORA: Comprueba de nuevo antes de usar ---
+            if (formStatus) {
                 formStatus.innerHTML = "Oops! Hubo un problema con la conexión.";
                 formStatus.classList.add('error');
-            });
+            }
         });
-    }
+    });
 }); // <-- FIN DEL document.addEventListener
