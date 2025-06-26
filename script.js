@@ -183,11 +183,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         });
     }
-    // El código que tenías al final ha sido eliminado de aquí.
-
-    // Inicializar el renderizado del carrito al cargar la página
-    renderCart();
-// =================================================================
+    // =================================================================
 // === LÓGICA PARA EL FORMULARIO DE CONTACTO CON FORMSPREE (AJAX) ===
 // =================================================================
 const contactForm = document.getElementById('contact-form');
@@ -241,4 +237,9 @@ if (contactForm) {
             }
         });
     });
+}
+    // El código que tenías al final ha sido eliminado de aquí.
+
+    // Inicializar el renderizado del carrito al cargar la página
+    renderCart();
 }); // <-- FIN DEL document.addEventListener
