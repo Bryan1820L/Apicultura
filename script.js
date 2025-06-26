@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+    // ===============================
     // --- LÓGICA DEL MENÚ RESPONSIVE ---
+    // ===============================
     const menuToggle = document.querySelector('.menu-toggle');
     const nav = document.querySelector('header nav');
     if (menuToggle && nav) {
@@ -15,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 icon.classList.add('fa-bars');
             }
         });
-
         const navLinks = nav.querySelectorAll('a');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
@@ -28,8 +29,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // ==================================
     // --- LÓGICA DEL CARRITO DE COMPRAS ---
-
+    // ==================================
     const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
     const cartIconContainer = document.getElementById('cart-icon-container');
     const cartSidebar = document.getElementById('cart-sidebar');
@@ -39,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const cartTotalSidebar = document.getElementById('cart-total-sidebar');
     const checkoutBtn = document.getElementById('checkout-btn');
     const overlay = document.getElementById('overlay');
-    
     let cart = [];
 
     function renderCart() {
@@ -77,12 +78,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function addToCart(productId, productName, productPrice, productImage) {
         const existingItem = cart.find(item => item.id === productId);
-        if (existingItem) { existingItem.quantity++; } 
-        else {
-            cart.push({
-                id: productId, name: productName, price: productPrice,
-                image: productImage, quantity: 1
-            });
+        if (existingItem) { existingItem.quantity++; } else {
+            cart.push({ id: productId, name: productName, price: productPrice, image: productImage, quantity: 1 });
         }
         renderCart();
     }
@@ -138,108 +135,80 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // =========================================================================
-    // === ESTE ES EL LUGAR CORRECTO PARA LA LÓGICA DEL BOTÓN DE PAGO ===
-    // =========================================================================
     if (checkoutBtn) {
         checkoutBtn.addEventListener('click', () => {
-            
-            console.log("Botón 'Proceder al Pago' presionado.");
-
             if (cart.length === 0) {
-                console.log("El carrito está vacío. Mostrando alerta.");
                 alert('Tu carrito está vacío. Añade productos antes de continuar.');
                 return;
             }
-            
-            console.log("El carrito tiene productos. Preparando el mensaje...");
-
             let mensajePedido = "¡Hola! Quisiera hacer el siguiente pedido desde la página web:\n\n";
             cart.forEach(item => {
-                mensajePedido += `*Producto:* ${item.name}\n`;
-                mensajePedido += `*Cantidad:* ${item.quantity}\n`;
-                mensajePedido += `*Precio:* S/${(item.price * item.quantity).toFixed(2)}\n\n`;
+                mensajePedido += `*Producto:* ${item.name}\n*Cantidad:* ${item.quantity}\n*Precio:* S/${(item.price * item.quantity).toFixed(2)}\n\n`;
             });
-
             const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            mensajePedido += `*TOTAL DEL PEDIDO: S/${total.toFixed(2)}*\n\n`;
-            mensajePedido += "Por favor, confírmame los métodos de pago y los detalles para la entrega. ¡Gracias!";
-
+            mensajePedido += `*TOTAL DEL PEDIDO: S/${total.toFixed(2)}*\n\nPor favor, confírmame los métodos de pago y los detalles para la entrega. ¡Gracias!`;
             const mensajeCodificado = encodeURIComponent(mensajePedido);
             const tuNumeroDeWhatsapp = '51987382581';
             const urlWhatsapp = `https://wa.me/${tuNumeroDeWhatsapp}?text=${mensajeCodificado}`;
-
-            console.log("URL de WhatsApp generada:", urlWhatsapp);
-            
             window.open(urlWhatsapp, '_blank').focus();
-            console.log("Intento de abrir nueva pestaña de WhatsApp.");
-
             setTimeout(() => {
-                console.log("Limpiando el carrito.");
                 cart = [];
                 renderCart();
                 toggleCart();
             }, 3000); 
-
         });
     }
+    
     // =================================================================
-// === LÓGICA PARA EL FORMULARIO DE CONTACTO CON FORMSPREE (AJAX) ===
-// =================================================================
-const contactForm = document.getElementById('contact-form');
-const formStatus = document.getElementById('form-status'); // El script intenta encontrar el elemento aquí
+    // === LÓGICA PARA EL FORMULARIO DE CONTACTO CON FORMSPREE (AJAX) ===
+    // =================================================================
+    const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
 
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault(); 
-
-        const form = e.target;
-        const data = new FormData(form);
-        
-        // --- MEJORA: Comprueba si el elemento de estado existe ---
-        if (formStatus) {
-            formStatus.innerHTML = 'Enviando...';
-            formStatus.className = '';
-        }
-        
-        fetch(form.action, {
-            method: form.method,
-            body: data,
-            headers: {
-                'Accept': 'application/json'
-            }
-        }).then(response => {
-            if (response.ok) {
-                // --- MEJORA: Comprueba de nuevo antes de usar ---
-                if (formStatus) {
-                    formStatus.innerHTML = "¡Gracias! Tu mensaje ha sido enviado correctamente.";
-                    formStatus.classList.add('success');
-                }
-                form.reset(); 
-            } else {
-                response.json().then(data => {
-                    let errorMessage = "Oops! Hubo un problema al enviar tu formulario.";
-                    if (Object.hasOwn(data, 'errors')) {
-                        errorMessage = data["errors"].map(error => error["message"]).join(", ");
-                    }
-                    // --- MEJORA: Comprueba de nuevo antes de usar ---
-                    if (formStatus) {
-                        formStatus.innerHTML = errorMessage;
-                        formStatus.classList.add('error');
-                    }
-                })
-            }
-        }).catch(error => {
-            // --- MEJORA: Comprueba de nuevo antes de usar ---
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const data = new FormData(form);
+            
             if (formStatus) {
-                formStatus.innerHTML = "Oops! Hubo un problema con la conexión.";
-                formStatus.classList.add('error');
+                formStatus.innerHTML = 'Enviando...';
+                formStatus.className = '';
             }
+            
+            fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    if (formStatus) {
+                        formStatus.innerHTML = "¡Gracias! Tu mensaje ha sido enviado correctamente.";
+                        formStatus.classList.add('success');
+                    }
+                    form.reset(); 
+                } else {
+                    response.json().then(data => {
+                        let errorMessage = "Oops! Hubo un problema al enviar tu formulario.";
+                        if (Object.hasOwn(data, 'errors')) {
+                            errorMessage = data["errors"].map(error => error["message"]).join(", ");
+                        }
+                        if (formStatus) {
+                            formStatus.innerHTML = errorMessage;
+                            formStatus.classList.add('error');
+                        }
+                    })
+                }
+            }).catch(error => {
+                if (formStatus) {
+                    formStatus.innerHTML = "Oops! Hubo un problema con la conexión.";
+                    formStatus.classList.add('error');
+                }
+            });
         });
-    });
-}
-    // El código que tenías al final ha sido eliminado de aquí.
+    }
 
     // Inicializar el renderizado del carrito al cargar la página
     renderCart();
-}); // <-- FIN DEL document.addEventListener
+
+}); // <-- ESTA ES LA ÚNICA LLAVE DE CIERRE FINAL
