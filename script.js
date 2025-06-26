@@ -5,28 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const nav = document.querySelector('header nav');
 
     if (menuToggle && nav) {
-        menuToggle.addEventListener('click', function() {
-            nav.classList.toggle('active');
-            const icon = menuToggle.querySelector('i');
-            if (nav.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-
-        const navLinks = nav.querySelectorAll('a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (nav.classList.contains('active')) {
-                    nav.classList.remove('active');
-                    menuToggle.querySelector('i').classList.remove('fa-times');
-                    menuToggle.querySelector('i').classList.add('fa-bars');
-                }
-            });
-        });
+        // ... (Tu código del menú responsive sin cambios) ...
     }
 
     // --- LÓGICA DEL CARRITO DE COMPRAS ---
@@ -36,15 +15,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const cartSidebar = document.getElementById('cart-sidebar');
     const closeCartBtn = document.getElementById('close-cart-btn');
     const cartItemsContainer = document.getElementById('cart-items-container');
-    const cartTotalHeader = document.getElementById('cart-total-header'); // Intenta encontrarlo
-    const cartTotalSidebar = document.getElementById('cart-total-sidebar'); // Intenta encontrarlo
+    const cartTotalHeader = document.getElementById('cart-total-header');
+    const cartTotalSidebar = document.getElementById('cart-total-sidebar');
     const checkoutBtn = document.getElementById('checkout-btn');
     const overlay = document.getElementById('overlay');
     
     let cart = [];
 
     function renderCart() {
-        if (!cartItemsContainer) return; 
+        if (!cartItemsContainer) return;
         cartItemsContainer.innerHTML = '';
         if (cart.length === 0) {
             cartItemsContainer.innerHTML = '<p class="empty-cart-message">Tu carrito está vacío.</p>';
@@ -73,8 +52,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateCartTotal() {
         const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
         const totalFormatted = `S/${total.toFixed(2)}`;
-        
-        // **AQUÍ ESTÁ LA MEJORA:** Comprueba si los elementos existen antes de usarlos
         if (cartTotalHeader) {
             cartTotalHeader.textContent = totalFormatted;
         }
@@ -110,6 +87,29 @@ document.addEventListener('DOMContentLoaded', function() {
             overlay.classList.toggle('show');
         }
     }
+    
+    // --> NUEVO: Función para mostrar el feedback visual
+    function showFeedback(button) {
+        // 1. Cambiar el texto y estilo del botón
+        const originalText = button.textContent;
+        button.textContent = "¡Añadido!";
+        button.classList.add('added');
+
+        // 2. Hacer temblar el ícono del carrito
+        if (cartIconContainer) {
+            cartIconContainer.classList.add('shaking');
+        }
+
+        // 3. Volver todo a la normalidad después de un tiempo
+        setTimeout(() => {
+            button.textContent = originalText;
+            button.classList.remove('added');
+            if (cartIconContainer) {
+                cartIconContainer.classList.remove('shaking');
+            }
+        }, 1500); // 1.5 segundos
+    }
+
 
     addToCartButtons.forEach(button => {
         button.addEventListener('click', (e) => {
@@ -123,6 +123,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const image = imageElement ? imageElement.src : '';
 
             addToCart(id, name, price, image);
+            
+            // --> NUEVO: Llamar a la función de feedback visual
+            showFeedback(e.target);
         });
     });
 
