@@ -652,3 +652,23 @@ footer .social-icons a:hover {
 .overlay.show {
     display: block;
 }
+/* --- ESTILOS PARA FEEDBACK VISUAL AL AÑADIR AL CARRITO --- */
+
+/* 1. Estilo para el botón cuando el producto está añadido */
+.add-to-cart-btn.added {
+    background-color: #28a745; /* Un verde de "éxito" */
+    color: white;
+    cursor: default; /* Cambia el cursor para indicar que no se puede clickear de nuevo */
+    pointer-events: none; /* Deshabilita temporalmente el botón */
+}
+
+/* 2. Animación para el ícono del carrito */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.cart-icon.shaking {
+    animation: shake 0.5s ease-in-out;
+}
