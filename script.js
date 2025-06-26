@@ -142,18 +142,38 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    if (checkoutBtn) {
-        checkoutBtn.addEventListener('click', () => {
-            if (cart.length > 0) {
-                alert('Procesando pago... (función de demostración)');
-                cart = [];
-                renderCart();
-                toggleCart();
-            } else {
-                alert('No hay productos en tu carrito para pagar.');
-            }
+    if (cart.length === 0) {
+            alert('Tu carrito está vacío. Añade productos antes de continuar.');
+            return; // Detiene la ejecución si no hay nada que comprar
+        }
+
+        // 1. Prepara el mensaje del pedido
+        let mensajePedido = "¡Hola! Quisiera hacer el siguiente pedido desde la página web:\n\n";
+        
+        cart.forEach(item => {
+            mensajePedido += `*Producto:* ${item.name}\n`;
+            mensajePedido += `*Cantidad:* ${item.quantity}\n`;
+            mensajePedido += `*Precio:* S/${(item.price * item.quantity).toFixed(2)}\n\n`;
         });
-    }
-    
-    renderCart();
-});
+
+        const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        mensajePedido += `*TOTAL DEL PEDIDO: S/${total.toFixed(2)}*\n\n`;
+        mensajePedido += "Por favor, confírmame los métodos de pago y los detalles para la entrega. ¡Gracias!";
+
+        // 2. Codifica el mensaje para que funcione en una URL
+        const mensajeCodificado = encodeURIComponent(mensajePedido);
+
+        // 3. Crea el enlace de WhatsApp y redirige al usuario
+        // ¡IMPORTANTE! Reemplaza '51987654321' con TU número de WhatsApp (con el código de país)
+        const tuNumeroDeWhatsapp = '51987382581'; // Ya lo tenías en tu botón flotante
+        const urlWhatsapp = `https://wa.me/${tuNumeroDeWhatsapp}?text=${mensajeCodificado}`;
+
+        // Abre el enlace en una nueva pestaña
+        window.open(urlWhatsapp, '_blank');
+
+        // Opcional: limpiar el carrito después de enviar el pedido
+        cart = [];
+        renderCart();
+        toggleCart();
+    });
+}
