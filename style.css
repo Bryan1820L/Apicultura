@@ -696,3 +696,16 @@ footer .social-icons a:hover {
     border: 1px solid #f5c6cb;
 }
 
+.texto-centrado {
+    text-align: center;
+}
+.video-container {
+    text-align: center;
+}
+
+.video-container iframe {
+    width: 90%;
+    max-width: 600px;
+    border-radius: 12px;
+}
+
