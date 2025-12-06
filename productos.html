@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todos los Productos - Apícola Manzanapampa</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+<header>
+    <div class="container">
+        <div class="logo">
+            <img src="logo-manzapampa.png" alt="Logo">
+            <h1>Apicola Manzanapampa</h1>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="productos.html" class="active">Productos</a></li>
+                <li><a href="#contacto">Contáctanos</a></li>
+            </ul>
+        </nav>
+
+        <div class="cart-icon" id="cart-icon-container">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cart-total-heard">S/0.00</span>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="container">
+        <h2 class="section-title">Todos nuestros productos</h2>
+
+        <div class="product-grid">
+
+            <!-- COPIA TUS PRODUCTOS IGUAL QUE EN EL INDEX -->
+            <div class="product-card" data-id="1" data-name="Miel Multifloral 1Kg" data-price="49.99">
+                <div class="product-badge oferta">Oferta</div>
+                <img src="miel-multifloral.jpg" alt="Miel Multifloral">
+                <h3>Miel Multifloral 1Kg</h3>
+                <p class="product-price"><span class="old-price">S/60.00</span> <span class="current-price">S/49.99</span></p>
+                <button class="btn btn-secondary add-to-cart-btn">Añadir al Carrito</button>
+            </div>
+
+            <div class="product-card" data-id="2" data-name="Propóleo 30ml" data-price="20.00">
+                <img src="propoleo.jpg" alt="Propóleo">
+                <h3>Propóleo 30ml</h3>
+                <p class="product-price"><span class="old-price">S/25.00</span> <span class="current-price">S/20.00</span></p>
+                <button class="btn btn-secondary add-to-cart-btn">Añadir al Carrito</button>
+            </div>
+
+            <div class="product-card" data-id="3" data-name="Polen Granulado 0.5 Kg" data-price="60.00">
+                <div class="product-badge nuevo">Nuevo</div>
+                <img src="polen-granuladoo.jpg" alt="Polen">
+                <h3>Polen Granulado 0.5 Kg</h3>
+                <p class="product-price"><span class="old-price">S/65.00</span> <span class="current-price">S/60.00</span></p>
+                <button class="btn btn-secondary add-to-cart-btn">Añadir al Carrito</button>
+            </div>
+
+            <div class="product-card" data-id="4" data-name="Jalea Real 0.5 Kg" data-price="70.00">
+                <img src="jalea.jpg" alt="Jalea Real">
+                <h3>Jalea Real 0.5 Kg</h3>
+                <p class="product-price"><span class="old-price">S/100.00</span> <span class="current-price">S/70.00</span></p>
+                <button class="btn btn-secondary add-to-cart-btn">Añadir al Carrito</button>
+            </div>
+
+        </div>
+
+    </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
