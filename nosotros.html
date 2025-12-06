@@ -4,72 +4,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre Nosotros - Apícola Manzanapampa</title>
-
-    <!-- Fuente elegante -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-    <!-- Estilos -->
     <link rel="stylesheet" href="style.css">
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
-        <h1>Sobre Nosotros</h1>
-        <nav>
-            <a href="index.html">Inicio</a>
-            <a href="galeria.html" class="btn-galeria">Galería</a>
-        </nav>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"><img src="logo-manzapampa.png" alt="Logo Apícola Manzanapampa"></a>
+                <h1>Apícola Manzanapampa</h1>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="nosotros.html" class="active">Nosotros</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="#contacto">Contáctanos</a></li>
+                </ul>
+            </nav>
+
+            <div class="cart-icon" id="cart-icon-container">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-total-header">S/0.00</span>
+            </div>
+
+            <button class="menu-toggle" aria-label="Abrir menú">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
     </header>
 
-    <main>
+    <main class="container about">
+        <!-- Encabezado / banner pequeño -->
+        <section class="about-hero">
+            <h2>Sobre Nosotros</h2>
+            <p class="lead">Apicultura responsable, productos puros y un compromiso con nuestra tierra en Manzanapampa.</p>
+        </section>
 
-        <!-- HISTORIA -->
-        <section class="section">
-            <img src="img/historia.jpg" alt="Historia de la apicultura" class="section-img">
-            <div class="section-text">
-                <h2>Nuestra Historia</h2>
-                <p>
-                    En el corazón de Manzanapampa, rodeados de naturaleza y flores silvestres, nació nuestro amor por las abejas.
-                    Lo que comenzó como una pequeña iniciativa familiar se convirtió en un proyecto lleno de vida, aprendizaje y compromiso.
-                    Hoy seguimos creciendo con el propósito de ofrecer productos naturales y promover la apicultura responsable.
-                </p>
+        <!-- Nuestra Historia -->
+        <section class="about-section">
+            <h3>Nuestra Historia</h3>
+            <div class="about-content">
+                <img src="img/historia.jpg" alt="Historia Apícola Manzanapampa" class="about-img">
+                <div class="section-text">
+                    <p>
+                        En el corazón de Manzanapampa, rodeados de flores silvestres y cerros, nació nuestro amor por las abejas.
+                        Lo que comenzó como una iniciativa familiar, impulsada por curiosidad y respeto, creció hasta convertirse
+                        en una práctica profesional y de conservación. Trabajamos en armonía con la naturaleza para producir miel
+                        y derivados con identidad local y alta calidad.
+                    </p>
+                </div>
             </div>
         </section>
 
-        <!-- MISIÓN -->
-        <section class="section">
-            <img src="img/mision.jpg" alt="Misión apícola" class="section-img">
-            <div class="section-text">
-                <h2>Nuestra Misión</h2>
-                <p>
-                    Producir miel y derivados apícolas de la más alta calidad mediante prácticas sostenibles que protejan a las abejas
-                    y al medio ambiente. Buscamos educar y concientizar a nuestra comunidad sobre el valor de los polinizadores.
-                </p>
+        <!-- Nuestra Misión -->
+        <section class="about-section">
+            <h3>Nuestra Misión</h3>
+            <div class="about-content reverse">
+                <img src="img/mision.jpg" alt="Misión Apícola Manzanapampa" class="about-img">
+                <div class="section-text">
+                    <p>
+                        Producir miel y productos apícolas sostenibles, cuidando a las abejas y educando a nuestra comunidad sobre
+                        la importancia de los polinizadores. Buscamos que cada frasco represente buenas prácticas, transparencia y sabor auténtico.
+                    </p>
+                </div>
             </div>
         </section>
 
-        <!-- EQUIPO -->
-        <section class="section">
-            <img src="img/equipo.jpg" alt="Equipo Apícola Manzanapampa" class="section-img">
-            <div class="section-text">
-                <h2>Nuestro Equipo</h2>
-                <p>
-                    Somos un equipo apasionado, comprometido y lleno de amor por la naturaleza. Detrás de cada colmena y cada frasco
-                    de miel hay personas dedicadas al cuidado, cosecha responsable y protección de los polinizadores.
-                </p>
+        <!-- Nuestro Equipo -->
+        <section class="about-section">
+            <h3>Nuestro Equipo</h3>
+            <div class="about-content">
+                <img src="img/equipo.jpg" alt="Equipo Apícola Manzanapampa" class="about-img">
+                <div class="section-text">
+                    <p>
+                        Detrás de cada colmena y cada frasco hay manos dedicadas: apicultores, envasadores y personas comprometidas con la biodiversidad.
+                        Trabajamos con pasión para garantizar trazabilidad, calidad y un trato justo en cada etapa.
+                    </p>
+                </div>
             </div>
         </section>
 
-        <!-- BOTÓN A GALERÍA -->
-        <div class="btn-center">
-            <a href="galeria.html" class="btn-galeria2">Ver nuestra galería de fotos</a>
+        <!-- Botones -->
+        <div class="text-center botones-nosotros">
+            <a href="galeria.html" class="btn btn-primary">Ver nuestra galería de fotos</a>
+            <a href="index.html" class="btn btn-secondary">Volver al inicio</a>
         </div>
-
     </main>
 
     <footer>
-        <p>&copy; 2023 Apícola Manzanapampa. Todos los derechos reservados.</p>
-        <p><a href="index.html">Volver a la página principal</a></p>
+        <div class="container">
+            <p>© 2024 Apícola Manzanapampa. Todos los derechos reservados.</p>
+            <p><a href="index.html">Volver a la página principal</a></p>
+        </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
+
