@@ -996,22 +996,11 @@ body::before{
 @media (max-width:768px){
 
     header nav{
-        display:block !important;
-        background:#18381f !important;
-    }
-
-    header nav ul{
-        display:flex !important;
-        flex-direction:column !important;
-    }
-
-    header nav ul li{
-        display:block !important;
+        background:#18381f;
     }
 
     header nav ul li a{
-        color:white !important;
-        background:#18381f !important;
+        color:white;
     }
 
 }
