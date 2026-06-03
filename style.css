@@ -436,7 +436,7 @@ footer .social-icons a:hover {
 /* Responsive Design */
 @media (max-width: 768px) {
     .logo h1 {
-        font-size: 1.2rem; /* Más pequeño en móvil */
+        font-size: 1.0rem; /* Más pequeño en móvil */
     }
     header nav {
     display: none;
@@ -993,3 +993,25 @@ body::before{
     padding:80px 0;
 }
 
+@media (max-width:768px){
+
+    header nav{
+        display:block !important;
+        background:#18381f !important;
+    }
+
+    header nav ul{
+        display:flex !important;
+        flex-direction:column !important;
+    }
+
+    header nav ul li{
+        display:block !important;
+    }
+
+    header nav ul li a{
+        color:white !important;
+        background:#18381f !important;
+    }
+
+}
