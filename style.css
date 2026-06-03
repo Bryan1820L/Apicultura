@@ -709,3 +709,231 @@ footer .social-icons a:hover {
     border-radius: 12px;
 }
 
+/* ===== DISEÑO PREMIUM EL NECTAR DE TENERIA ===== */
+
+body{
+    background:#f8f4eb;
+}
+
+/* HEADER */
+header{
+    background:linear-gradient(
+    90deg,
+    #16371f,
+    #244b2c,
+    #16371f
+    );
+    padding:15px 0;
+    box-shadow:none;
+}
+
+.logo h1{
+    color:#d8b15d;
+    font-size:1.5rem;
+    font-family:'Cormorant Garamond', serif;
+}
+
+header nav ul li a{
+    color:white;
+    font-weight:600;
+}
+
+header nav ul li a:hover,
+header nav ul li a.active{
+    color:#d8b15d;
+    border-bottom:2px solid #d8b15d;
+}
+
+.cart-icon{
+    color:#d8b15d;
+}
+
+/* TITULOS */
+h1,h2,h3{
+    font-family:'Cormorant Garamond', serif;
+}
+
+.section-title{
+    font-size:3rem;
+    color:#1f3a24;
+}
+
+/* HERO */
+#hero{
+    height:50vh;
+    background:
+    linear-gradient(
+    rgba(0,0,0,.35),
+    rgba(0,0,0,.35)),
+    url('Fondo-colmenar.jpg');
+
+    background-size:cover;
+    background-position:center;
+}
+
+.hero-content h2{
+    font-size:4rem;
+    color:white;
+}
+
+.hero-content p{
+    color:white;
+    font-size:1.2rem;
+}
+
+/* PRODUCTOS */
+
+#products{
+    padding-top:80px;
+    padding-bottom:80px;
+}
+
+.product-card{
+    background:white;
+    border:none;
+    border-radius:15px;
+    overflow:hidden;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+}
+
+.product-card:hover{
+    transform:translateY(-8px);
+}
+
+.product-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.product-card h3{
+    color:#222;
+    font-size:1.5rem;
+}
+
+.product-price{
+    font-size:1.3rem;
+}
+
+.current-price{
+    color:#1d4d2a;
+    font-weight:bold;
+}
+
+/* BADGES */
+
+.product-badge.oferta{
+    background:#dc3545;
+}
+
+.product-badge.nuevo{
+    background:#ffc107;
+    color:#222;
+}
+
+/* BOTONES */
+
+.btn-primary{
+    background:#d8a63c;
+    color:white;
+    border-radius:8px;
+}
+
+.btn-primary:hover{
+    background:#be8e28;
+}
+
+.btn-secondary{
+    background:#18381f;
+    color:white;
+    border-radius:8px;
+}
+
+.btn-secondary:hover{
+    background:#244b2c;
+}
+
+/* TESTIMONIOS */
+
+#testimonials{
+    background:
+    linear-gradient(
+    rgba(10,35,15,.85),
+    rgba(10,35,15,.85)),
+    url('fondo-apiario.jpg');
+
+    background-size:cover;
+    background-position:center;
+
+    padding:80px 0;
+}
+
+#testimonials h2{
+    color:white;
+    font-size:3rem;
+}
+
+.testimonial-card{
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(5px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:15px;
+
+    color:white;
+
+    box-shadow:none;
+}
+
+.testimonial-card p{
+    color:white;
+}
+
+.testimonial-card h4{
+    color:#d8b15d;
+}
+
+/* CONTACTO */
+
+#contacto{
+    padding:80px 0;
+}
+
+.contact-form{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.08);
+}
+
+.contact-form input,
+.contact-form textarea{
+    border:1px solid #ddd;
+    border-radius:8px;
+}
+
+/* FOOTER */
+
+footer{
+    background:#18381f;
+}
+
+footer p{
+    color:white;
+}
+
+/* WHATSAPP */
+
+.whatsapp-float{
+    width:65px;
+    height:65px;
+    font-size:35px;
+}
