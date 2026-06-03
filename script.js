@@ -207,7 +207,24 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+// Cerrar menú al hacer clic fuera
+document.addEventListener('click', function(event){
 
+    const menuAbierto = nav.classList.contains('active');
+
+    if(
+        menuAbierto &&
+        !nav.contains(event.target) &&
+        !menuToggle.contains(event.target)
+    ){
+        nav.classList.remove('active');
+
+        const icon = menuToggle.querySelector('i');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+    }
+
+});
     // Inicializar el renderizado del carrito al cargar la página
     renderCart();
 
