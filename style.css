@@ -263,7 +263,7 @@ header nav ul li a.active {
 }
 
 .product-card img {
-    max-width: 100%;
+    max-width: 120%;
     height: 200px;
     object-fit: cover;
     margin-bottom: 15px;
