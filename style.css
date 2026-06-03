@@ -323,7 +323,7 @@ header nav ul li a.active {
     linear-gradient(
     rgba(10,35,15,.85),
     rgba(10,35,15,.85)),
-    url('imges/fondocolmenar.jpg');
+    url('images/fondocolmenar.jpg');
 
     background-size:cover;
     background-position:center;
@@ -973,8 +973,8 @@ body::before{
 
 #products{
     background:
-    url('imges/miel-izquierda.png') left center no-repeat,
-    url('imges/flores-derecha.png') right center no-repeat,
+    url('images/miel-izquierda.png') left center no-repeat,
+    url('images/flores-derecha.png') right center no-repeat,
     #f8f4eb;
 
     background-size:
