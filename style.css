@@ -439,14 +439,17 @@ footer .social-icons a:hover {
         font-size: 1.2rem; /* Más pequeño en móvil */
     }
     header nav {
-        display: none; /* Ocultar menú normal */
-        flex-direction: column;
-        width: 100%;
-        background-color: var(--white-color);
-        position: absolute;
-        top: 70px; /* Altura del header aprox */
-        left: 0;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: none;
+    flex-direction: column;
+    width: 100%;
+
+    background: #18381f; /* Verde oscuro */
+
+    position: absolute;
+    top: 70px;
+    left: 0;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.25);
     }
     header nav.active { /* Clase para mostrar menú */
         display: flex;
@@ -460,14 +463,19 @@ footer .social-icons a:hover {
         text-align: center;
     }
     header nav ul li a {
-        display: block;
-        padding: 15px;
-        border-bottom: 1px solid #eee;
+    display: block;
+    padding: 15px;
+    color: #ffffff; /* Letras blancas */
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
     }
     header nav ul li a.active,
     header nav ul li a:hover {
-        border-bottom: 1px solid #eee; /* Quitar borde inferior activo en móvil */
-        background-color: var(--light-bg-color);
+    background: #d8b15d; /* Dorado */
+
+    color: #18381f; /* Verde oscuro */
+
+    border-bottom: 1px solid rgba(255,255,255,0.15);
     }
     .menu-toggle {
         display: block; /* Mostrar botón de hamburguesa */
